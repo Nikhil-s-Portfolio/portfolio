@@ -318,7 +318,8 @@ export default function App() {
             ))}
             <a
               href={`${import.meta.env.BASE_URL}resume.pdf`}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-4 px-4 py-2 text-xs font-mono font-bold tracking-wider rounded border border-orange-500/50 text-orange-400 hover:bg-orange-500/10 transition-all flex items-center space-x-1.5 glow-orange"
             >
               <Download size={14} />
@@ -365,7 +366,8 @@ export default function App() {
                 ))}
                 <a
                   href={`${import.meta.env.BASE_URL}resume.pdf`}
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
                   className="mt-4 w-full flex items-center justify-center space-x-2 py-3 rounded border border-orange-500/50 text-orange-400 hover:bg-orange-500/10 font-mono font-bold text-sm tracking-wider"
                 >
@@ -435,7 +437,8 @@ export default function App() {
               </a>
               <a
                 href={`${import.meta.env.BASE_URL}resume.pdf`}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3.5 rounded border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-mono font-bold tracking-wider text-sm text-center transition-all flex items-center justify-center space-x-2 cursor-pointer"
               >
                 <Download size={16} />
