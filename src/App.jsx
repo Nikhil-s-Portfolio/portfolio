@@ -116,7 +116,7 @@ export default function App() {
       id: 1,
       title: "Crank Slider Paperweight",
       category: "prototypes",
-      image: "/images/crank_slider_1.jpg",
+      image: `${import.meta.env.BASE_URL}images/crank_slider_1.jpg`,
       description: "Assembled aluminum and 3D printed mechanical four-bar linkage mechanism.",
       tools: ["Manual Milling", "3D Printing"],
       details: "ME 470 Project. Constructed a physical paperweight verifying kinematic synthesis and mechanical tolerances, resolving joints binding using washers."
@@ -125,7 +125,7 @@ export default function App() {
       id: 2,
       title: "4-Bar Slingshot Total Deformation",
       category: "simulations",
-      image: "/images/slingshot_fea.jpg",
+      image: `${import.meta.env.BASE_URL}images/slingshot_fea.jpg`,
       description: "ANSYS FEA simulation showing deformation profile under rotational torque.",
       tools: ["ANSYS FEA", "Structural Dynamics"],
       details: "Static structural FEA validating deflection scales under peak rotational kick force, verifying the rigid aluminum structure maintains joint safety margins."
@@ -134,7 +134,7 @@ export default function App() {
       id: 3,
       title: "Formula SAE Garage & Track Prep",
       category: "testing",
-      image: "/images/fsae_pit.jpg",
+      image: `${import.meta.env.BASE_URL}images/fsae_pit.jpg`,
       description: "Formula SAE vehicles prepared in the garage for track testing and dynamic runs.",
       tools: ["Track Prep", "Tech Inspection", "Vehicle Assembly"],
       details: "Hands-on technical inspection preparation and track tuning in the Formula SAE garage. Verified fuel system integrity, chassis packaging, and general assembly layout under racing regulations."
@@ -317,7 +317,7 @@ export default function App() {
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               download
               className="ml-4 px-4 py-2 text-xs font-mono font-bold tracking-wider rounded border border-orange-500/50 text-orange-400 hover:bg-orange-500/10 transition-all flex items-center space-x-1.5 glow-orange"
             >
@@ -364,7 +364,7 @@ export default function App() {
                   </a>
                 ))}
                 <a
-                  href="/resume.pdf"
+                  href={`${import.meta.env.BASE_URL}resume.pdf`}
                   download
                   onClick={() => setIsMenuOpen(false)}
                   className="mt-4 w-full flex items-center justify-center space-x-2 py-3 rounded border border-orange-500/50 text-orange-400 hover:bg-orange-500/10 font-mono font-bold text-sm tracking-wider"
@@ -434,7 +434,7 @@ export default function App() {
                 <ArrowRight size={16} />
               </a>
               <a
-                href="/resume.pdf"
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
                 download
                 className="px-6 py-3.5 rounded border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-mono font-bold tracking-wider text-sm text-center transition-all flex items-center justify-center space-x-2 cursor-pointer"
               >
