@@ -65,6 +65,7 @@ export default function App() {
   const [isMinorDropdownOpen, setIsMinorDropdownOpen] = useState(false);
   const [activeGalleryFilter, setActiveGalleryFilter] = useState('all');
   const [selectedGalleryItem, setSelectedGalleryItem] = useState(null);
+  const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
 
   // Navigation Links
@@ -138,6 +139,20 @@ export default function App() {
       description: "Formula SAE vehicles prepared in the garage for track testing and dynamic runs.",
       tools: ["Track Prep", "Tech Inspection", "Vehicle Assembly"],
       details: "Hands-on technical inspection preparation and track tuning in the Formula SAE garage. Verified fuel system integrity, chassis packaging, and general assembly layout under racing regulations."
+    },
+    {
+      id: 4,
+      title: "Capstone Storage Cart Design & FEA",
+      category: ["cad", "simulations"],
+      image: `${import.meta.env.BASE_URL}images/capstone_cart_cad.jpg`,
+      images: [
+        `${import.meta.env.BASE_URL}images/capstone_cart_cad.jpg`,
+        `${import.meta.env.BASE_URL}images/capstone_cart_fea.jpg`
+      ],
+      imageLabels: ["CAD Model", "FEA Analysis"],
+      description: "CAD wireframe model and structural FEA deformation simulation of the storage cart structure.",
+      tools: ["SolidWorks CAD", "ANSYS FEA", "Structural Analysis"],
+      details: "Capstone project storage cart redesigned using T-slot 6063-T6 aluminum extrusions. Evaluated stress concentrations and dynamic load displacements under a simulated 150lb load, achieving a 25µm maximum deflection constraint and a 10% weight reduction."
     }
   ];
 
@@ -1133,11 +1148,14 @@ export default function App() {
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {galleryItems
-              .filter(item => activeGalleryFilter === 'all' || item.category === activeGalleryFilter)
+              .filter(item => activeGalleryFilter === 'all' || item.category === activeGalleryFilter || (Array.isArray(item.category) && item.category.includes(activeGalleryFilter)))
               .map((item) => (
                 <div
                   key={item.id}
-                  onClick={() => setSelectedGalleryItem(item)}
+                  onClick={() => {
+                    setSelectedGalleryItem(item);
+                    setActiveImageIdx(0);
+                  }}
                   className="glass-panel rounded-xl overflow-hidden border border-slate-800/80 hover:border-slate-700/80 transition-all duration-300 group cursor-pointer hover:shadow-xl hover:shadow-blue-500/5 relative flex flex-col h-[320px]"
                 >
                   {/* Image container */}
@@ -1533,10 +1551,29 @@ export default function App() {
               {/* Image side */}
               <div className="w-full md:w-3/5 bg-slate-950 flex items-center justify-center p-2 relative h-[250px] sm:h-[350px] md:h-[450px]">
                 <img
-                  src={selectedGalleryItem.image}
+                  src={selectedGalleryItem.images ? selectedGalleryItem.images[activeImageIdx] : selectedGalleryItem.image}
                   alt={selectedGalleryItem.title}
                   className="max-w-full max-h-full object-contain rounded-lg shadow-md"
                 />
+                
+                {/* Image toggles for multi-image gallery items */}
+                {selectedGalleryItem.images && selectedGalleryItem.images.length > 1 && (
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex bg-slate-900/90 border border-slate-800 rounded-lg p-1 gap-1 shadow-lg backdrop-blur-sm z-20">
+                    {selectedGalleryItem.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveImageIdx(idx)}
+                        className={`px-3 py-1.5 text-[10px] font-mono font-bold tracking-wider rounded transition-all cursor-pointer ${
+                          activeImageIdx === idx
+                            ? 'text-orange-400 bg-orange-500/10 border border-orange-500/30'
+                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 border border-transparent'
+                        }`}
+                      >
+                        {selectedGalleryItem.imageLabels ? selectedGalleryItem.imageLabels[idx] : `IMAGE ${idx + 1}`}
+                      </button>
+                    ))}
+                  </div>
+                )}
                 <button
                   onClick={() => setSelectedGalleryItem(null)}
                   className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer md:hidden animate-pulse"
@@ -1550,7 +1587,9 @@ export default function App() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold tracking-widest text-orange-400 uppercase bg-orange-500/10 px-2.5 py-1 rounded">
-                      {selectedGalleryItem.category === 'simulations' ? 'Simulation & FEA' : selectedGalleryItem.category === 'cad' ? 'CAD Model' : selectedGalleryItem.category === 'prototypes' ? 'Prototype' : selectedGalleryItem.category === 'testing' ? 'Testing & Hands-on' : 'Engineering Visual'}
+                      {Array.isArray(selectedGalleryItem.category)
+                        ? selectedGalleryItem.category.map(c => c === 'simulations' ? 'Simulation & FEA' : c === 'cad' ? 'CAD Model' : c === 'prototypes' ? 'Prototype' : c === 'testing' ? 'Testing & Hands-on' : 'Engineering Visual').join(' / ')
+                        : (selectedGalleryItem.category === 'simulations' ? 'Simulation & FEA' : selectedGalleryItem.category === 'cad' ? 'CAD Model' : selectedGalleryItem.category === 'prototypes' ? 'Prototype' : selectedGalleryItem.category === 'testing' ? 'Testing & Hands-on' : 'Engineering Visual')}
                     </span>
                     <button
                       onClick={() => setSelectedGalleryItem(null)}
