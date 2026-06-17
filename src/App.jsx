@@ -1312,12 +1312,12 @@ export default function App() {
                   <h3 className="text-base font-bold font-sans text-slate-100">
                     Phi Gamma Nu (PGN)
                   </h3>
-                  <p className="text-xs font-mono text-slate-400">Professional Development Chair</p>
+                  <p className="text-xs font-mono text-slate-400">Professional Development</p>
                 </div>
               </div>
               
               <p className="text-sm text-slate-300 leading-relaxed mb-4 flex-grow font-sans">
-                Led peer mentoring, resume workshops, and public speaking exercises to drive professional development. Coordinated recruitment events, managed cross-functional teamwork under pressure, and delivered technical presentations to scale members' career readiness.
+                Engaged in professional development initiatives including resume workshops, peer mentoring programs, networking events, and public speaking exercises. Learned the organization’s recruitment process, collaborated with members across various functions, and developed communication, teamwork, and career-readiness skills through active chapter participation.
               </p>
               
               <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 border-t border-slate-850 pt-3">
