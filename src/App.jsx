@@ -75,6 +75,7 @@ export default function App() {
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
+    { id: 'certifications', label: 'Certifications' },
     { id: 'gallery', label: 'Gallery' },
     { id: 'leadership', label: 'Leadership' },
     { id: 'contact', label: 'Contact' }
@@ -162,7 +163,7 @@ export default function App() {
       title: "Prototype Rocket Design",
       category: "Aerospace System",
       shortDescription: "Design, construction, and structural optimization of an experimental model rocket. Engineered to record flight dynamics metrics and validate simulations against actual test flights.",
-      role: "Aerospace Design Lead",
+      role: "Engineering Intern",
       tools: ["Aerodynamics", "SolidWorks", "Composite Materials", "Data Logging"],
       result: "Stability: +25% Increase, 5+ Successful Launches",
       metricBadge: "Stability: +25%",
@@ -179,8 +180,8 @@ export default function App() {
     },
     {
       id: "fsae",
-      title: "Formula SAE Fuel System Integration",
-      category: "Fluid Dynamics / Powertrain",
+      title: "Formula SAE Fuel System",
+      category: "Fuel System / Vehicle Integration",
       shortDescription: "Designed and integrated a high-performance fuel system for the Formula SAE racing car. Configured system packaging and vibration insulation.",
       role: "Fuel System Lead",
       tools: ["Fluid Flow", "Chassis Packaging", "Vibration Mitigation", "Pressure Regulators"],
@@ -199,10 +200,10 @@ export default function App() {
     },
     {
       id: "cooling",
-      title: "Electronics Cooling System Optimization",
+      title: "Thermal Systems",
       category: "Thermal Systems / Capstone Design",
       shortDescription: "Tested and optimized multiple cooling configurations to reduce peak electronics temperatures using fins, elevation, airflow, and thermal paste.",
-      role: "Thermal Analyst & Test Engineer",
+      role: "Mechanical Design and Test",
       tools: ["Thermal Testing", "Data Analysis", "Heat Transfer", "Experimental Validation", "Design Recommendations"],
       result: "Peak Temperature Reduced by ~29°C (from 71.7°C control to 42.35°C best setup)",
       metricBadge: "Temp Reduction: -29°C",
@@ -1112,12 +1113,137 @@ export default function App() {
         </div>
       </section>
 
+      {/* Certifications Section */}
+      <section id="certifications" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-900 bg-slate-950/40 relative">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-left mb-16">
+            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">05 / CREDENTIALS &amp; TRAINING</span>
+            <h2 className="text-3xl font-bold font-sans mt-2 tracking-tight">Certifications</h2>
+            <div className="h-1 w-20 bg-blue-500 mt-4"></div>
+          </div>
+
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* Cert 1: Simulink */}
+            <div className="glass-panel p-6 sm:p-8 rounded-xl border border-slate-800/80 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/5 group text-left flex flex-col justify-between transform hover:-translate-y-1 relative overflow-hidden">
+              {/* Card Accent Glow */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl pointer-events-none -z-10 group-hover:bg-blue-500/10 transition-colors"></div>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <Award size={20} />
+                  </div>
+                  <span className="inline-block px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider rounded bg-slate-900 border border-slate-850 text-slate-300">
+                    Jan 2026
+                  </span>
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="text-xl font-bold font-sans text-slate-100 group-hover:text-blue-400 transition-colors">
+                    MathWorks Simulink Onramp &amp; Fundamentals
+                  </h3>
+                  <p className="text-xs font-mono text-slate-400">
+                    <strong>Issued by:</strong> MathWorks | Training Services
+                  </p>
+                </div>
+
+                <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                  Completed self-paced training covering Simulink fundamentals, including block diagrams, system modeling, simulation setup, and analyzing dynamic system behavior.
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {['Simulink', 'System Modeling', 'Dynamic Simulation', 'MathWorks'].map((tag, i) => (
+                    <span key={i} className="px-2.5 py-0.5 rounded bg-slate-950 border border-slate-850 text-[10px] font-mono text-slate-400">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border-t border-slate-850/80 pt-6 mt-6 flex justify-between items-center text-xs font-mono">
+                <span className="text-emerald-400 font-extrabold flex items-center gap-1">
+                  <CheckCircle2 size={12} />
+                  100% Completed
+                </span>
+                <a
+                  href={`${import.meta.env.BASE_URL}mathworks_simulink.pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded border border-blue-500/50 hover:bg-blue-500/10 text-blue-400 font-mono font-bold tracking-wider text-xs transition-all flex items-center space-x-1.5 cursor-pointer"
+                >
+                  <FileText size={14} />
+                  <span>VIEW PDF</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Cert 2: Power Tools */}
+            <div className="glass-panel p-6 sm:p-8 rounded-xl border border-slate-800/80 hover:border-orange-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/5 group text-left flex flex-col justify-between transform hover:-translate-y-1 relative overflow-hidden">
+              {/* Card Accent Glow */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-full blur-2xl pointer-events-none -z-10 group-hover:bg-orange-500/10 transition-colors"></div>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded bg-orange-500/10 flex items-center justify-center text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                    <Wrench size={20} />
+                  </div>
+                  <span className="inline-block px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider rounded bg-slate-900 border border-slate-850 text-slate-300">
+                    May 2025
+                  </span>
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="text-xl font-bold font-sans text-slate-100 group-hover:text-orange-400 transition-colors">
+                    Hand and Portable Power Tools
+                  </h3>
+                  <p className="text-xs font-mono text-slate-400">
+                    <strong>Issued by:</strong> Michigan State University
+                  </p>
+                </div>
+
+                <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                  Gained safety training for operating hand and portable power tools in engineering, fabrication, and prototyping environments.
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {['Shop Safety', 'Power Tools', 'Fabrication', 'Prototyping', 'MSU'].map((tag, i) => (
+                    <span key={i} className="px-2.5 py-0.5 rounded bg-slate-950 border border-slate-850 text-[10px] font-mono text-slate-400">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border-t border-slate-850/80 pt-6 mt-6 flex justify-between items-center text-xs font-mono">
+                <span className="text-emerald-400 font-extrabold flex items-center gap-1">
+                  <CheckCircle2 size={12} />
+                  MSU Certified
+                </span>
+                <a
+                  href={`${import.meta.env.BASE_URL}power_tools_safety.jpeg`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded border border-orange-500/50 hover:bg-orange-500/10 text-orange-400 font-mono font-bold tracking-wider text-xs transition-all flex items-center space-x-1.5 cursor-pointer"
+                >
+                  <FileText size={14} />
+                  <span>VIEW IMAGE</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Gallery Section */}
       <section id="gallery" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-900 relative">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-left mb-16">
-            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">05 / ENGINEERING VISUALS &amp; DRAFTS</span>
+            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">06 / ENGINEERING VISUALS &amp; DRAFTS</span>
             <h2 className="text-3xl font-bold font-sans mt-2 tracking-tight">Visual Gallery</h2>
             <div className="h-1 w-20 bg-blue-500 mt-4"></div>
           </div>
@@ -1205,7 +1331,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-left mb-16">
-            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">05 / FOCUS &amp; ASPIRATIONS</span>
+            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">07 / FOCUS &amp; ASPIRATIONS</span>
             <h2 className="text-3xl font-bold font-sans mt-2 tracking-tight">Engineering Interests</h2>
             <div className="h-1 w-20 bg-blue-500 mt-4"></div>
           </div>
@@ -1248,7 +1374,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-left mb-16">
-            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">05 / LEADERSHIP &amp; COMMUNITY</span>
+            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">08 / LEADERSHIP &amp; COMMUNITY</span>
             <h2 className="text-3xl font-bold font-sans mt-2 tracking-tight">Leadership &amp; Extracurriculars</h2>
             <div className="h-1 w-20 bg-blue-500 mt-4"></div>
           </div>
@@ -1334,7 +1460,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-left mb-16">
-            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">06 / COMMUNICATION CHANNEL</span>
+            <span className="font-mono text-xs font-bold text-orange-500 uppercase tracking-widest">09 / COMMUNICATION CHANNEL</span>
             <h2 className="text-3xl font-bold font-sans mt-2 tracking-tight">Get In Touch</h2>
             <div className="h-1 w-20 bg-blue-500 mt-4"></div>
           </div>
@@ -1518,6 +1644,8 @@ export default function App() {
             <a href="#experience" className="hover:text-slate-300 transition-colors">Experience</a>
             <span>•</span>
             <a href="#projects" className="hover:text-slate-300 transition-colors">Projects</a>
+            <span>•</span>
+            <a href="#certifications" className="hover:text-slate-300 transition-colors">Certifications</a>
             <span>•</span>
             <a href="#gallery" className="hover:text-slate-300 transition-colors">Gallery</a>
             <span>•</span>
