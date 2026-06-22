@@ -1124,7 +1124,7 @@ export default function App() {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Cert 1: Simulink */}
             <div className="glass-panel p-6 sm:p-8 rounded-xl border border-slate-800/80 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/5 group text-left flex flex-col justify-between transform hover:-translate-y-1 relative overflow-hidden">
@@ -1227,6 +1227,60 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 rounded border border-orange-500/50 hover:bg-orange-500/10 text-orange-400 font-mono font-bold tracking-wider text-xs transition-all flex items-center space-x-1.5 cursor-pointer"
+                >
+                  <FileText size={14} />
+                  <span>VIEW IMAGE</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Cert 3: Leadership Development */}
+            <div className="glass-panel p-6 sm:p-8 rounded-xl border border-slate-800/80 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/5 group text-left flex flex-col justify-between transform hover:-translate-y-1 relative overflow-hidden">
+              {/* Card Accent Glow */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none -z-10 group-hover:bg-emerald-500/10 transition-colors"></div>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                    <Award size={20} />
+                  </div>
+                  <span className="inline-block px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider rounded bg-slate-900 border border-slate-850 text-slate-300">
+                    Nov 2023
+                  </span>
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="text-xl font-bold font-sans text-slate-100 group-hover:text-emerald-400 transition-colors">
+                    Certificate of Leadership Development
+                  </h3>
+                  <p className="text-xs font-mono text-slate-400">
+                    <strong>Issued by:</strong> Michigan State University | College of Engineering
+                  </p>
+                </div>
+
+                <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                  Completed the Leadership Development seminar/conference presented by the First-Year Engineering CoRe Experience, focusing on teamwork, communication, and leadership in engineering environments.
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {['Leadership', 'Team Collaboration', 'Professional Development', 'MSU CoRe'].map((tag, i) => (
+                    <span key={i} className="px-2.5 py-0.5 rounded bg-slate-950 border border-slate-850 text-[10px] font-mono text-slate-400">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border-t border-slate-850/80 pt-6 mt-6 flex justify-between items-center text-xs font-mono">
+                <span className="text-emerald-400 font-extrabold flex items-center gap-1">
+                  <CheckCircle2 size={12} />
+                  MSU Certified
+                </span>
+                <a
+                  href={`${import.meta.env.BASE_URL}leadership_development.jpg`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded border border-emerald-500/50 hover:bg-emerald-500/10 text-emerald-400 font-mono font-bold tracking-wider text-xs transition-all flex items-center space-x-1.5 cursor-pointer"
                 >
                   <FileText size={14} />
                   <span>VIEW IMAGE</span>
